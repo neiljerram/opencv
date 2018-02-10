@@ -1,4 +1,28 @@
 
+* test-image.py
+
+Code taken from
+https://www.pyimagesearch.com/2015/03/30/accessing-the-raspberry-pi-camera-with-opencv-and-python/.
+
+From a machine with an X server:
+
+#+BEGIN_SRC sh
+ssh -X pi@<IP of Pi>
+#+END_SRC sh
+
+Then on the Pi:
+
+#+BEGIN_SRC sh
+cd opencv
+make run-container
+#+END_SRC sh
+
+Then in the container:
+
+#+BEGIN_SRC sh
+python test-image.py
+#+END_SRC sh
+
 * Pi setup
 
 wpa_supplicant.conf with passwords for my home network and phone hotspot.
