@@ -29,14 +29,24 @@ wpa_supplicant.conf with passwords for my home network and phone hotspot.
 
 Camera enabled (raspi-config -> /boot/config.txt).
 
-sudo aptitude install emacs git docker.io imagemagick virtualenv python-dev
+=sudo aptitude install emacs git docker.io imagemagick virtualenv python-dev=
 
 (.emacs and org repo copied from work laptop)
 
 (Emacs packages installed: paredit, auto-complete, go-autocomplete, go-guru, magit.)
 
-opencv subdir under $HOME, with venv in opencv/venv.  In that venv:
-- pip install picamera[array]
+=git clone https://github.com/neiljerram/opencv.git=
 
 opencv/Makefile has run-container target that runs shell in a
 container that maps the opencv subdir and adds in an OpenCV install.
+
+** Unnecessary venv
+
+I thought I needed a venv at opencv/venv, and in that venv, =pip
+install picamera[array]=.
+
+I now think that is unnecessary, because it appears that the
+=sgtwilko/rpi-raspbian-opencv:latest= image already includes picamera
+(which makes sense given the Pi focus); and because I'm not doing
+anything to activate the venv inside the container, but code including
+=import picamera= still works.
